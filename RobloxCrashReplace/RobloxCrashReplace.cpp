@@ -6,7 +6,7 @@
 
 // tags
 namespace tag {
-    const char* success = "\033[1;32mSUCESS\033[0m";
+    const char* success = "\033[1;32mSUCCESS\033[0m";
     const char* restart = "\033[1;33mRESTART\033[0m";
     const char* crash = "\033[1;31mCRASH\033[0m";
     const char* error = "\033[1;31mERROR\033[0m";
@@ -22,26 +22,6 @@ std::string getUserProfile() {
     return userProfile;
 }
 
-DWORD getProcessId(const std::wstring& processName) {
-    DWORD pid = 0;
-    HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0); // get a snapshot of every open aplication
-
-    PROCESSENTRY32 pe32;
-    pe32.dwSize = sizeof(PROCESSENTRY32);
-
-    // iterate though each process
-    for (; Process32Next(hSnapshot, &pe32); ) {
-        if (_wcsicmp(pe32.szExeFile, processName.c_str()) == 0) {
-            pid = pe32.th32ProcessID;
-            break;
-        }
-    }
-
-    CloseHandle(hSnapshot);
-
-    return pid;
-}
-
 int main()
 {
     SetConsoleTitleA("RBX CRASH LOGGER");
@@ -51,8 +31,9 @@ int main()
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
         // Get roblox crash window
+        DWORD robloxId;
         HWND roblox = FindWindowA(0, "Roblox Crash");
-        DWORD robloxId = getProcessId(processName);
+        GetWindowThreadProcessId(roblox, &robloxId); // get roblox crash id from window
 
         if (roblox) {
             try {
