@@ -1,0 +1,6 @@
+﻿  RobloxCrashReplace.cpp
+C:\Users\murga\source\repos\RobloxCrashReplace\RobloxCrashReplace\RobloxCrashReplace.cpp(80,25): warning C4311: 'reinterpret_cast': pointer truncation from 'HINSTANCE' to 'int'
+C:\Users\murga\source\repos\RobloxCrashReplace\RobloxCrashReplace\RobloxCrashReplace.cpp(80,25): warning C4302: 'reinterpret_cast': truncation from 'HINSTANCE' to 'int'
+C:\Users\murga\source\repos\RobloxCrashReplace\RobloxCrashReplace\RobloxCrashReplace.cpp(81,108): warning C4311: 'reinterpret_cast': pointer truncation from 'HINSTANCE' to 'int'
+C:\Users\murga\source\repos\RobloxCrashReplace\RobloxCrashReplace\RobloxCrashReplace.cpp(81,108): warning C4302: 'reinterpret_cast': truncation from 'HINSTANCE' to 'int'
+  RobloxCrashReplace.vcxproj -> C:\Users\murga\source\repos\RobloxCrashReplace\x64\Debug\RobloxCrashReplace.exe
